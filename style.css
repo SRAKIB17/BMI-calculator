@@ -1,0 +1,62 @@
+
+body{
+    padding: 20px;
+}
+.BmiSection{
+    padding: 30px;
+    width: 100%;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgb(220, 220, 220);
+    border-radius: 10px;
+}
+tr{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+td h3,div{
+    display: inline;
+}
+td div img{
+    height: 200px;
+}
+label::after {
+    content: '*';
+    color: red;
+    font-size: 18px;
+}
+table,tr{
+    padding: 10px;
+    width: 100%;
+}
+input,button {
+    border-radius: 10px;
+}
+#clear {
+    background-color: red;
+    color: whitesmoke;
+    border: none;
+}
+#clear:hover {
+    border: 2px solid silver;
+}
+.zone1{
+    color: #8abafd;
+}
+.zone2{
+    font-weight: bold;
+    color: green;
+}
+.zone3{
+    font-weight: bold;
+    color: rgb(201, 201, 15);
+}
+.zone4{
+    font-weight: bold;
+    color: #E4985E;
+}
+.zone5{
+    font-weight: bold;
+    color: red;
+}
