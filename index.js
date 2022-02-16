@@ -59,6 +59,7 @@ getId('clear').addEventListener('click',function(){
     getId('Weight').value = ''
     getId('Height').value = ''
     getId('result-bmi').innerText = ''
+    getId('profile').innerHTML = ''
 })
 
 getId('foot').addEventListener('keyup',function(event){
