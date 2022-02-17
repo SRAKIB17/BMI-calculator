@@ -13,11 +13,19 @@ function images(id){
 }
 
 
-getId('Weight').addEventListener('keyup', calculate)
-getId('Height').addEventListener('keyup', calculate)
+getId('Weight').addEventListener('keyup', calculate);
+getId('Height').addEventListener('keyup', calculate);
+;
+getId('Weight').addEventListener('change', calculate);
+getId('Height').addEventListener('change', calculate);
 
-getId('Weight').addEventListener('change', calculate)
-getId('Height').addEventListener('change', calculate)
+getId('foot').addEventListener('keyup',function(event){
+    footCalc(event.target.value)
+})
+
+getId('foot').addEventListener('change',function(event){
+    footCalc(event.target.value)
+})
 
 function calculate(){
     const kg = getId('Weight').value;
@@ -59,15 +67,7 @@ getId('clear').addEventListener('click',function(){
     getId('foot').value = ''
 })
 
-getId('foot').addEventListener('keyup',function(event){
-    footCalc(event.target.value)
-})
 
-getId('foot').addEventListener('change',function(event){
-    footCalc(event.target.value)
-    // getId('convert-meter').value = foot* 0.3048
-    
-})
 
 // foot calculate
 function footCalc(getFoot){
