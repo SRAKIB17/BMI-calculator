@@ -2,6 +2,16 @@ function getId(id){
     const idname = document.getElementById(id);
     return idname
 }
+// get html code 
+function images(id){
+    const profile = ['UnderWeight Zone','Normal Zone','Overweight Zone','Obese Zone','Extremly Obese']
+    const image = 
+        ` <span class="zone${id}">${profile[id-1]}</span><br>
+        <img src="./imgaes/m-${id}.jpg" alt="" class="bmi-image">
+        <img src="./imgaes/w-${id}.jpg" alt="" class="bmi-image">`
+    return image
+}
+
 
 getId('Weight').addEventListener('keyup', calculate)
 getId('Height').addEventListener('keyup', calculate)
@@ -17,35 +27,20 @@ function calculate(){
         const BMI = kg/Math.pow(mt,2);
         getId('result-bmi').innerText ='BMI:'+ BMI.toFixed(4);
         if(BMI < 18.5){
-            profile.innerHTML = 
-            ` <span class="zone1">UnderWeight Zone</span><br>
-            <img src="./imgaes/m-1.jpg" alt="" class="bmi-image">
-            <img src="./imgaes/w-1.jpg" alt="" class="bmi-image">`
+            profile.innerHTML = images(1);
 
         }
         else if(BMI >= 18.5 && BMI <25){
-            profile.innerHTML = 
-            ` <span class="zone2">Normal Zone</span><br>
-            <img src="./imgaes/m-2.jpg" alt="" class="bmi-image">
-            <img src="./imgaes/w-2.jpg" alt="" class="bmi-image">`
+            profile.innerHTML = images(2);
         }
         else if(BMI>=25 && BMI <30 ){
-            profile.innerHTML = 
-            `<span class="zone3">Overweight Zone</span><br>
-            <img src="./imgaes/m-3.jpg" alt="" class="bmi-image">
-            <img src="./imgaes/w-3.jpg" alt="" class="bmi-image">`
+            profile.innerHTML = images(3);
         }
         else if (BMI >= 30 && BMI <35){
-            profile.innerHTML = 
-            `<span class="zone4">Obese Zone</span><br>
-            <img src="./imgaes/m-4.jpg" alt="" class="bmi-image">
-            <img src="./imgaes/w-4.jpg" alt="" class="bmi-image">`
+            profile.innerHTML = images(4);
         }
         else if(BMI>= 35){
-            profile.innerHTML = 
-            `<span class="zone5">Extremly Obese Zone</span><br>
-            <img src="./imgaes/m-5.jpg" alt="" class="bmi-image">
-            <img src="./imgaes/w-5.jpg" alt="" class="bmi-image">`
+            profile.innerHTML = images(5);
         }
     }
     else{
@@ -55,11 +50,13 @@ function calculate(){
     }
     
 }
+// clear button 
 getId('clear').addEventListener('click',function(){
     getId('Weight').value = ''
     getId('Height').value = ''
     getId('result-bmi').innerText = ''
     getId('profile').innerHTML = ''
+    getId('foot').value = ''
 })
 
 getId('foot').addEventListener('keyup',function(event){
@@ -82,12 +79,13 @@ function footCalc(getFoot){
         }
         inch = inch/12;
         const foot = parseFloat(getFootArray[0])+inch;
-        getId('convert-meter').value = foot* 0.3048;
+        // getId('convert-meter').value = foot* 0.3048;
         getId('Height').value = foot* 0.3048;
     }
+    calculate()
 }
 
-getId('copy').addEventListener('click',function(){
-    getId('convert-meter').select()
-    document.execCommand('copy')
-})
+// getId('copy').addEventListener('click',function(){
+//     getId('convert-meter').select()
+//     document.execCommand('copy')
+// })
