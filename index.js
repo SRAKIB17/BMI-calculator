@@ -63,16 +63,29 @@ getId('clear').addEventListener('click',function(){
 })
 
 getId('foot').addEventListener('keyup',function(event){
-    const foot = parseFloat(event.target.value);
-    getId('convert-meter').value = foot* 0.3048
-    
+    footCalc(event.target.value)
 })
 
 getId('foot').addEventListener('change',function(event){
-    const foot = parseFloat(event.target.value);
-    getId('convert-meter').value = foot* 0.3048
+    footCalc(event.target.value)
+    // getId('convert-meter').value = foot* 0.3048
     
 })
+
+// foot calculate
+function footCalc(getFoot){
+    if(getFoot != ''){
+        const getFootArray = getFoot.split('.');
+        let inch = 0;
+        if(getFootArray.length == 2){
+            inch = getFootArray[1];
+        }
+        inch = inch/12;
+        const foot = parseFloat(getFootArray[0])+inch;
+        getId('convert-meter').value = foot* 0.3048;
+        getId('Height').value = foot* 0.3048;
+    }
+}
 
 getId('copy').addEventListener('click',function(){
     getId('convert-meter').select()
